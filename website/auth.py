@@ -53,8 +53,10 @@ def sign_up():
             flash('First name must be greater than 1 character.', category='error')
         elif len(password) < 15:
             flash('Password must be greater than 14 characters.', category='error')
+        elif user is None:
+            flash('Email does not exist.', category='error')
         else:
-            new_user = User(email=email, first_name=firstName, password=generate_password_hash(password, method='pbkdf2:sha256'))
+            new_user = User(first_name=firstName, email=email, password=generate_password_hash(password, method='pbkdf2:sha256'))
             db.session.add(new_user) # add the new user to the database
             db.session.commit() # commit the changes to the database
             login_user(user, remember=True) # remember=True means that the user will stay logged in even after closing the browser
