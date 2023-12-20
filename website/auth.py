@@ -20,7 +20,7 @@ def login():
         user = User.query.filter_by(email=email).first() # first() returns the first result, all() returns all results
         if user:
             if check_password_hash(user.password, password): # check if the password is correct
-                flash('Logged in successfully!', category='success')
+                # flash('Logged in successfully!', category='success')
                 login_user(user, remember=True) # remember=True means that the user will stay logged in even after closing the browser
                 return redirect(url_for('views.home'))
             else:

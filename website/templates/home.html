@@ -2,7 +2,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1 align="center">Notes</h1>
+<h1 align="center">Art of Wellbeing</h1>
 <br />
 <ul class="list-group list-group-flush" id="notes">
     {% for note in user.notes %}
@@ -21,4 +21,13 @@
         <button class="btn btn-primary" type="submit">Add Note</button>
     </div>
 </form>
+
+<br />
+
+<div class="welcome" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <p>Long description</p>
+    <p>Here you can see my art and buy it if you like it!</p>
+    <a href="/art" class="btn btn-primary">Art Gallery</a>
+</div>
+
 {% endblock %}

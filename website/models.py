@@ -17,3 +17,13 @@ class Note(db.Model):
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now()) # DateTime is a data type that stores the date and time
     user_id = db.Column(db.Integer, db.ForeignKey('user.id')) # ForeignKey is a data type that stores the id of another table, in this case the user table, note that it is not capitalized because it is a column
+
+class Gallery(db.Model):
+    """Stores the art gallery data."""
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(150))
+    description = db.Column(db.String(10000))
+    price = db.Column(db.Integer)
+    main_image_path = db.Column(db.String(150))
+    medium = db.Column(db.String(150))
+    size = db.Column(db.String(150))

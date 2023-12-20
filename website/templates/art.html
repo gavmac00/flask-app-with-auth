@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Art{% endblock %}
+
+{% block content %}
+<h1 align="center">Art Gallery</h1>
+<br />
+<ul class="list-group list-group-flush" id="gallery" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+    {% for art in gallery %}
+    <div class="ml-auto mr-auto" id="art-piece" style="display: flex; flex-direction: row; justify-content: space-between; gap: 20px;">
+        <div class="ml-auto mr-auto" style="display: flex; flex-direction: column; justify-content: top;">
+            <img src="{{ art.main_image_path }}" alt="Art" style="width: {{art.main_image_dimensions_width}}px; height: {{art.main_image_dimensions_height}}px;">
+        </div>
+        <div class="ml-auto mr-auto" style="display: flex; flex-direction: column; justify-content: left; align-items: left;">
+            <h3>{{ art.title }}</h3>
+            <p>{{ art.description }}</p>
+            <p></p>{{ art.medium }}</p>
+            <p>{{ art.size }}</p>
+            <p>&#x20AC;{{ art.price }}</p>
+            <button class="btn btn-primary" type="submit" style="width: 200px">Buy</button>
+        </div>
+    </div>
+    <br />
+    <br />
+    {% endfor %}
+</ul>
+
+<br />
+
+<!-- <div class="welcome" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <p>Long description</p>
+    <p>Here you can see my art and buy it if you like it!</p>
+    <a href="/art" class="btn btn-primary">Art Gallery</a>
+</div> -->
+
+{% endblock %}
